@@ -20,24 +20,26 @@ namespace HRmapAndDictionary
 
             }
             string input = Console.ReadLine();
-            while (input != null)
+            bool done=false;
+            while (!done)
             {
                 if (input == "")
                 {
+                    done = true;
                     break;
                 }
-                else
+
+                if (phoneBook.ContainsKey(input))
                 {
-                    if (phoneBook.ContainsKey(input) )
-                    {
-                        KeyValuePair<string, int> kv = phoneBook.FirstOrDefault(k => k.Key == input);
-                        Console.WriteLine(kv.Key + "=" + kv.Value);
+                    var value = phoneBook.FirstOrDefault(k => k.Key == input).Value;
+                    Console.WriteLine(input + "=" + value);
 
-                    }
-
-                    else { Console.WriteLine("Not found"); }
-                    input = Console.ReadLine();
                 }
+
+                else { Console.WriteLine("Not found"); }
+                input = Console.ReadLine();
+                
+
             }
         }
     }
