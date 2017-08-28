@@ -28,7 +28,7 @@ namespace HRmapAndDictionary
                 }
                 else
                 {
-                    if (phoneBook.ContainsKey(input) && input != null)
+                    if (phoneBook.ContainsKey(input) )
                     {
                         KeyValuePair<string, int> kv = phoneBook.FirstOrDefault(k => k.Key == input);
                         Console.WriteLine(kv.Key + "=" + kv.Value);
